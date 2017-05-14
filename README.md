@@ -1,4 +1,4 @@
-# js-levenshtein
+# js-levenshtein [![Build Status](https://travis-ci.org/gustf/js-levenshtein.svg?branch=master)](https://travis-ci.org/gustf/js-levenshtein)
 
 An efficient JS implementation calculating the Levenshtein distance, i.e. the difference between two strings.
 
