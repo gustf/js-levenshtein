@@ -1,6 +1,8 @@
 'use strict';
 module.exports = (function()
 {
+  var vector = [];
+
   function _min(d0, d1, d2, bx, ay)
   {
     return d0 < d1 || d2 < d1
@@ -59,7 +61,9 @@ module.exports = (function()
     var bx2;
     var bx3;
 
-    var vector = new Array(la << 1);
+    if (vector.length < la << 1) {
+      vector = new Array(la << 1);
+    }
 
     bx0 = b.charCodeAt(offset);
     dd = 1;
@@ -95,7 +99,7 @@ module.exports = (function()
       for (y = 0; y < la; y++) {
         dy = vector[y];
         vector[y] = dd = dy < d0 || dd < d0
-            ? dy > dd ? dd + 1 : dy + 1
+            ? (dy > dd ? dd + 1 : dy + 1)
             : bx0 === vector[la + y]
                 ? d0
                 : d0 + 1;

@@ -29,19 +29,19 @@ levenshtein('kitten', 'sitting');
 
 ```
 $ npm run bench
-```
 
-```
-         655,992 op/s » js-levenshtein
-         542,796 op/s » leven
-         497,966 op/s » talisman
-         386,839 op/s » levenshtein-edit-distance
-         254,941 op/s » fast-levenshtein
-          69,857 op/s » levenshtein-component
-          21,688 op/s » levdist
-          24,631 op/s » ld
-          21,834 op/s » natural
-          13,984 op/s » levenshtein
+                      js-levenshtein
+         745,590 op/s » js-levenshtein/cached
+         667,378 op/s » js-levenshtein
+         533,400 op/s » leven
+         525,475 op/s » talisman
+         381,433 op/s » levenshtein-edit-distance
+         287,224 op/s » fast-levenshtein
+          80,848 op/s » levenshtein-component
+          24,762 op/s » levdist
+          27,333 op/s » ld
+          19,505 op/s » natural
+          13,413 op/s » levenshtein
 ```
 
 

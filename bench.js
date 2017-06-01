@@ -9,6 +9,7 @@ const levenshtein1 = require('levenshtein');
 const talisman = require('talisman/metrics/distance/levenshtein');
 const leven = require('leven');
 const levenshtein = require('./');
+const cached = require('./cached');
 
 function run(fn)
 {
@@ -30,6 +31,10 @@ function run(fn)
 
 suite('js-levenshtein', function()
 {
+  bench('js-levenshtein/cached', function()
+  {
+    run(cached);
+  });
   bench('js-levenshtein', function()
   {
     run(levenshtein);
