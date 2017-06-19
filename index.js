@@ -61,14 +61,12 @@ module.exports = (function()
 
     var vector = new Array(la << 1);
 
-    bx0 = b.charCodeAt(offset);
-    dd = 1;
-    for (y = 0; y < la; y++) {
+    for (y = 0; y < la;) {
       vector[la + y] = a.charCodeAt(offset + y);
-      vector[y] = dd = dd < y ? dd + 1 : bx0 === vector[la + y] ? y : y + 1;
+      vector[y] = ++y;
     }
 
-    for (x = 1; (x + 3) < lb;) {
+    for (x = 0; (x + 3) < lb;) {
       bx0 = b.charCodeAt(offset + (d0 = x));
       bx1 = b.charCodeAt(offset + (d1 = x + 1));
       bx2 = b.charCodeAt(offset + (d2 = x + 2));
