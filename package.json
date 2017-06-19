@@ -16,8 +16,7 @@
     "bench": "matcha bench.js"
   },
   "files": [
-    "index.js",
-    "cached.js"
+    "index.js"
   ],
   "keywords": [
     "leven",
