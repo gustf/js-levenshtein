@@ -67,8 +67,6 @@ $ npm run bench
              207 op/s » levenshtein
 ```
 
-This implementation is 43, 39 and 25 percent faster respectively than the runner up [talisman](https://github.com/Yomguithereal/talisman)
-
 Benchmarks was performed with node v8.1.2 on a MacBook pro 15", 2.9 GHz Intel Core i7
 
 ## License
