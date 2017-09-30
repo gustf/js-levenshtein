@@ -1,11 +1,6 @@
 'use strict';
 const levenshteinEditDistance = require('levenshtein-edit-distance');
 const fastLevenshtein = require('fast-levenshtein').get;
-const levenshteinComponent = require('levenshtein-component');
-const ld = require('ld').computeDistance;
-const levdist = require('levdist');
-const natural = require('natural').LevenshteinDistance;
-const levenshtein1 = require('levenshtein');
 const talisman = require('talisman/metrics/distance/levenshtein');
 const leven = require('leven');
 const levenshtein = require('./');
@@ -55,7 +50,6 @@ suite('50 paragraphs, length max=500 min=240 avr=372.5', function()
   {
     paragraphBench(talisman);
   });
-
   bench('leven', function()
   {
     paragraphBench(leven);
@@ -68,31 +62,6 @@ suite('50 paragraphs, length max=500 min=240 avr=372.5', function()
   bench('fast-levenshtein', function()
   {
     paragraphBench(fastLevenshtein);
-  });
-
-  bench('levenshtein-component', function()
-  {
-    paragraphBench(levenshteinComponent);
-  });
-
-  bench('levdist', function()
-  {
-    paragraphBench(levdist);
-  });
-
-  bench('ld', function()
-  {
-    paragraphBench(ld);
-  });
-
-  bench('natural', function()
-  {
-    paragraphBench(natural);
-  });
-
-  bench('levenshtein', function()
-  {
-    paragraphBench(levenshtein1);
   });
 })
 
@@ -114,7 +83,6 @@ suite('100 sentences, length max=170 min=6 avr=57.5', function()
   {
     sentenceBench(talisman);
   });
-
   bench('leven', function()
   {
     sentenceBench(leven);
@@ -127,31 +95,6 @@ suite('100 sentences, length max=170 min=6 avr=57.5', function()
   bench('fast-levenshtein', function()
   {
     sentenceBench(fastLevenshtein);
-  });
-
-  bench('levenshtein-component', function()
-  {
-    sentenceBench(levenshteinComponent);
-  });
-
-  bench('levdist', function()
-  {
-    sentenceBench(levdist);
-  });
-
-  bench('ld', function()
-  {
-    sentenceBench(ld);
-  });
-
-  bench('natural', function()
-  {
-    sentenceBench(natural);
-  });
-
-  bench('levenshtein', function()
-  {
-    sentenceBench(levenshtein1);
   });
 });
 
@@ -174,7 +117,6 @@ suite('2000 words, length max=20 min=3 avr=9.5', function()
   {
     wordBench(talisman);
   });
-
   bench('leven', function()
   {
     wordBench(leven);
@@ -189,31 +131,33 @@ suite('2000 words, length max=20 min=3 avr=9.5', function()
   {
     wordBench(fastLevenshtein);
   });
+  /*
 
-  bench('levenshtein-component', function()
-  {
-    wordBench(levenshteinComponent);
-  });
+    bench('levenshtein-component', function()
+    {
+      wordBench(levenshteinComponent);
+    });
 
-  bench('levdist', function()
-  {
-    wordBench(levdist);
-  });
+    bench('levdist', function()
+    {
+      wordBench(levdist);
+    });
 
-  bench('ld', function()
-  {
-    wordBench(ld);
-  });
+    bench('ld', function()
+    {
+      wordBench(ld);
+    });
 
-  bench('natural', function()
-  {
-    wordBench(natural);
-  });
+    bench('natural', function()
+    {
+      wordBench(natural);
+    });
 
-  bench('levenshtein', function()
-  {
-    wordBench(levenshtein1);
-  });
+    bench('levenshtein', function()
+    {
+      wordBench(levenshtein1);
+    });
+    */
 });
 
 var paragraphs = [
