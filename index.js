@@ -45,7 +45,7 @@ module.exports = (function()
       return lb;
     }
 
-    var x;
+    var x = 0;
     var y;
     var d0;
     var d1;
@@ -59,42 +59,41 @@ module.exports = (function()
     var bx2;
     var bx3;
 
-    var vector = new Array(la << 1);
+    var vector = [];
 
-    for (y = 0; y < la;) {
-      vector[la + y] = a.charCodeAt(offset + y);
-      vector[y] = ++y;
+    for (y = 0; y < la; y++) {
+      vector.push(y + 1);
+      vector.push(a.charCodeAt(offset + y));
     }
 
-    for (x = 0; (x + 3) < lb;) {
+    for (; (x + 3) < lb;) {
       bx0 = b.charCodeAt(offset + (d0 = x));
       bx1 = b.charCodeAt(offset + (d1 = x + 1));
       bx2 = b.charCodeAt(offset + (d2 = x + 2));
       bx3 = b.charCodeAt(offset + (d3 = x + 3));
       dd = (x += 4);
-      for (y = 0; y < la;) {
-        ay = vector[la + y];
+      for (y = 0; y < vector.length; y += 2) {
         dy = vector[y];
+        ay = vector[y + 1];
         d0 = _min(dy, d0, d1, bx0, ay);
         d1 = _min(d0, d1, d2, bx1, ay);
         d2 = _min(d1, d2, d3, bx2, ay);
         dd = _min(d2, d3, dd, bx3, ay);
-        vector[y++] = dd;
+        vector[y] = dd;
         d3 = d2;
         d2 = d1;
         d1 = d0;
         d0 = dy;
       }
     }
-
     for (; x < lb;) {
       bx0 = b.charCodeAt(offset + (d0 = x));
       dd = ++x;
-      for (y = 0; y < la; y++) {
+      for (y = 0; y < vector.length; y += 2) {
         dy = vector[y];
         vector[y] = dd = dy < d0 || dd < d0
             ? dy > dd ? dd + 1 : dy + 1
-            : bx0 === vector[la + y]
+            : bx0 === vector[y + 1]
                 ? d0
                 : d0 + 1;
         d0 = dy;
