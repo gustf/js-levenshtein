@@ -41,7 +41,7 @@ module.exports = (function()
     la -= offset;
     lb -= offset;
 
-    if (la === 0 || lb === 1) {
+    if (la === 0 || lb < 3) {
       return lb;
     }
 
