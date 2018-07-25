@@ -1,5 +1,6 @@
 import test from 'ava';
 import levenshtein from './';
+import {levensteinDistance as leva} from './leva';
 
 test(t =>
      {
@@ -18,3 +19,23 @@ test(t =>
        t.is(levenshtein('distance', 'difference'), 5);
        t.is(levenshtein('因為我是中國人所以我會說中文', '因為我是英國人所以我會說英文'), 2);
      });
+
+test(t =>
+     {
+       t.is(leva('a', 'b'), 1);
+       t.is(leva('ab', 'ac'), 1);
+       t.is(leva('ac', 'bc'), 1);
+       t.is(leva('abc', 'axc'), 1);
+       t.is(leva('kitten', 'sitting'), 3);
+       t.is(leva('xabxcdxxefxgx', '1ab2cd34ef5g6'), 6);
+       t.is(leva('cat', 'cow'), 2);
+       t.is(leva('xabxcdxxefxgx', 'abcdefg'), 6);
+       t.is(leva('javawasneat', 'scalaisgreat'), 7);
+       t.is(leva('example', 'samples'), 3);
+       t.is(leva('sturgeon', 'urgently'), 6);
+       t.is(leva('levenshtein', 'frankenstein'), 6);
+       t.is(leva('distance', 'difference'), 5);
+       t.is(leva('因為我是中國人所以我會說中文', '因為我是英國人所以我會說英文'), 2);
+     });
+
+
