@@ -15,10 +15,8 @@
     "test": "ava",
     "bench": "matcha bench.js"
   },
-  "files": [
-    "index.js",
-    "index.d.ts"
-  ],
+  "main": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "levenshtein",
     "distance",
