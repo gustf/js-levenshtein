@@ -15,10 +15,8 @@
     "test": "ava",
     "bench": "matcha bench.js"
   },
-  "main": "index.js",
-  "types": "index.d.ts",
   "files": [
-    "index.d.ts"
+    "index.js"
   ],
   "keywords": [
     "levenshtein",
