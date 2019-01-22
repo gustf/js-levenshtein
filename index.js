@@ -90,7 +90,9 @@ module.exports = (function()
         d2 = d1;
         d1 = d0;
         d0 = dy;
-        min = Math.min(min, vector[y]);
+        if (max >= 0) {
+          min = Math.min(min, dd);
+        }
       }
       if (max >= 0 && min > max) {
         return Infinity;
@@ -105,7 +107,9 @@ module.exports = (function()
         dy = vector[y];
         vector[y] = dd = _min(dy, d0, dd, bx0, vector[y + 1]);
         d0 = dy;
-        min = Math.min(min, vector[y]);
+        if (max >= 0) {
+          min = Math.min(min, dd);
+        }
       }
       if (max >= 0 && min > max) {
           return Infinity;
