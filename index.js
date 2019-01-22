@@ -12,11 +12,13 @@ module.exports = (function()
             : d1 + 1;
   }
 
-  return function(a, b)
+  return function(a, b, max)
   {
     if (a === b) {
       return 0;
     }
+
+    max = typeof max === 'number' ? max : -1;
 
     if (a.length > b.length) {
       var tmp = a;
@@ -58,6 +60,7 @@ module.exports = (function()
     var bx1;
     var bx2;
     var bx3;
+    var min;
 
     var vector = [];
 
@@ -74,6 +77,7 @@ module.exports = (function()
       bx2 = b.charCodeAt(offset + (d2 = x + 2));
       bx3 = b.charCodeAt(offset + (d3 = x + 3));
       dd = (x += 4);
+      min = Infinity;
       for (y = 0; y < len; y += 2) {
         dy = vector[y];
         ay = vector[y + 1];
@@ -86,16 +90,25 @@ module.exports = (function()
         d2 = d1;
         d1 = d0;
         d0 = dy;
+        min = Math.min(min, vector[y]);
+      }
+      if (max >= 0 && min > max) {
+        return Infinity;
       }
     }
 
     for (; x < lb;) {
       bx0 = b.charCodeAt(offset + (d0 = x));
       dd = ++x;
+      min = Infinity;
       for (y = 0; y < len; y += 2) {
         dy = vector[y];
         vector[y] = dd = _min(dy, d0, dd, bx0, vector[y + 1]);
         d0 = dy;
+        min = Math.min(min, vector[y]);
+      }
+      if (max >= 0 && min > max) {
+          return Infinity;
       }
     }
 
