@@ -7,6 +7,7 @@ Based on Wagner-Fischer dynamic programming algorithm, optimized for speed and m
  - loop unrolling on the outer loop
  - remove common prefixes/postfixes from the calculation
  - minimize the number of comparisons
+ - always allocate a new distance vector in order to not leak memory
  
 ## Install
 
