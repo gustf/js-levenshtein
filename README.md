@@ -32,28 +32,28 @@ levenshtein('kitten', 'sitting');
 $ npm run bench
 
                       50 paragraphs, length max=500 min=240 avr=372.5
+            672 op/s » fastest-levenshtein
+            612 op/s » fast-levenshtein 
             121 op/s » js-levenshtein
              78 op/s » talisman
              71 op/s » levenshtein-edit-distance
              71 op/s » leven
-             52 op/s » fast-levenshtein 
-             672 op/s » fastest-levenshtein
 
                       100 sentences, length max=170 min=6 avr=57.5
+          10,551 op/s » fastest-levenshtein
+           9,851 op/s » fast-levenshtein
            2,326 op/s » js-levenshtein
            1,647 op/s » talisman
            1,377 op/s » levenshtein-edit-distance
            1,378 op/s » leven
-           1,087 op/s » fast-levenshtein
-          10,551 op/s » fastest-levenshtein
 
                       2000 words, length max=20 min=3 avr=9.5
+           7,528 op/s » fastest-levenshtein 
+           7,228 op/s » fast-levenshtein
            2,659 op/s » js-levenshtein
            2,186 op/s » talisman
            1,847 op/s » levenshtein-edit-distance
            1,906 op/s » leven
-           1,672 op/s » fast-levenshtein
-           7,528 op/s » fastest-levenshtein 
 ```
 
 Benchmarks were performed with node v14.7.0 on a Pentium G4560 @ 3.50 GHz
