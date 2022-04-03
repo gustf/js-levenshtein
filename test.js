@@ -17,4 +17,5 @@ test(t =>
        t.is(levenshtein('levenshtein', 'frankenstein'), 6);
        t.is(levenshtein('distance', 'difference'), 5);
        t.is(levenshtein('因為我是中國人所以我會說中文', '因為我是英國人所以我會說英文'), 2);
+       t.is(levenshtein('Hello World', undefined), undefined);
      });

@@ -14,6 +14,10 @@ module.exports = (function()
 
   return function(a, b)
   {
+    if (!a || !b) {
+      return;
+    }
+
     if (a === b) {
       return 0;
     }
