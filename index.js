@@ -12,6 +12,7 @@ module.exports = (function()
             : d1 + 1;
   }
 
+  /** @type {(a: string, b: string) => number} */
   return function(a, b)
   {
     if (a === b) {
